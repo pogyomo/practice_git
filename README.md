@@ -1,6 +1,3 @@
-init
-line 2
-line 3
+# test.nvim
 
-New feature!!
-
+This is test for panvimdoc
