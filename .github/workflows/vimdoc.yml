@@ -5,10 +5,14 @@ on: [push]
 jobs:
   docs:
     runs-on: ubuntu-latest
-    name: pandoc to vimdoc
     steps:
-      - uses: action/checkout@v4.1.1
+      - uses: action/checkout@v4
       - name: panvimdoc
-        uses: kdheepak/panvimdoc@4.0.0
+        uses: kdheepak/panvimdoc@main
         with:
           vimdoc: test.nvim
+      - uses: stefanzweifel/git-auto-commit-action@v4
+      - name: commit change
+        with:
+          commit_message: "chore: auto-generate vimdoc"
+          branch: ${{ github.head_ref }}
